@@ -373,7 +373,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   collectionName: 'blogs';
   info: {
     description: '';
-    displayName: 'Blogs';
+    displayName: 'blogs';
     pluralName: 'blogs';
     singularName: 'blog';
   };
@@ -388,7 +388,10 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     blogContentTwo: Schema.Attribute.Text;
     blogDescription: Schema.Attribute.String;
     blogTitle: Schema.Attribute.String;
-    coverImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    coverImg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     coverVideo: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<'plugin::video-field.video'>;
     createdAt: Schema.Attribute.DateTime;
