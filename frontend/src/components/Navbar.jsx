@@ -18,8 +18,10 @@ const Navbar = () => {
     };
 
     return (
-        <div className="w-screen h-[120px] z-10 bg-white fixed drop-shadow-lg relative">
-            <div className="flex justify-between items-center w-full h-full md:max-w-[1240px] mx-auto px-4">
+        // <div className="w-screen h-[120px] z-10 bg-white fixed drop-shadow-lg relative">
+        <div className="w-full h-[120px] z-10 bg-white fixed drop-shadow-lg">
+            <div className="max-w-screen-2xl mx-auto flex justify-between items-center h-full px-4">
+                {/* <div className="flex justify-between items-center w-full h-full md:max-w-[1240px] mx-auto px-4"> */}
                 {/* Logo */}
                 <div className="flex items-center">
                     <img
