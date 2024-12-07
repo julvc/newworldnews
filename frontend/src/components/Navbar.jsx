@@ -17,11 +17,13 @@ const Navbar = () => {
         setTimeout(() => setLogoOpacity(true), 200); // Restaurar opacidad tras 200ms
     };
 
+    const handleCategoryClick = (category) => {
+        navigate(`/category/${category}`); // Redirigir a la página de la categoría seleccionada
+    };
+
     return (
-        // <div className="w-screen h-[120px] z-10 bg-white fixed drop-shadow-lg relative">
         <div className="w-full h-[120px] z-10 bg-white fixed drop-shadow-lg">
             <div className="max-w-screen-2xl mx-auto flex justify-between items-center h-full px-4">
-                {/* <div className="flex justify-between items-center w-full h-full md:max-w-[1240px] mx-auto px-4"> */}
                 {/* Logo */}
                 <div className="flex items-center">
                     <img
@@ -35,13 +37,16 @@ const Navbar = () => {
 
                 {/* Menú de navegación */}
                 <div className="flex items-center">
-                    <ul className="hidden md:flex text-sm space-x-6">
-                        <li>Anime</li>
-                        <li>Videojuegos</li>
-                        <li>Peliculas</li>
-                        <li>Series</li>
-                        <li>Tecnologia</li>
-                        <li>Reseñas</li>
+                    <ul className="hidden md:flex text-sm space-x-8">
+                        {["Anime", "Videojuegos", "Peliculas", "Series", "Tecnologia", "Reseñas"].map((category) => (
+                            <li
+                                key={category}
+                                className="text-blue-800 font-bold cursor-pointer transition-transform duration-200 hover:scale-110"
+                                onClick={() => handleCategoryClick(category)}
+                            >
+                                {category}
+                            </li>
+                        ))}
                     </ul>
                 </div>
 
@@ -63,12 +68,18 @@ const Navbar = () => {
 
             {/* Dropdown para móviles */}
             <ul className={toggle ? 'absolute bg-white w-full px-8 md:hidden' : 'hidden'}>
-                <li>Anime</li>
-                <li>Videojuegos</li>
-                <li>Peliculas</li>
-                <li>Series</li>
-                <li>Tecnologia</li>
-                <li>Reseñas</li>
+                {["Anime", "Videojuegos", "Peliculas", "Series", "Tecnologia", "Reseñas"].map((category) => (
+                    <li
+                        key={category}
+                        className="py-2 text-blue-800 font-bold cursor-pointer transition-transform duration-200 hover:scale-110"
+                        onClick={() => {
+                            handleCategoryClick(category);
+                            setToggle(false); // Cierra el menú después de hacer clic
+                        }}
+                    >
+                        {category}
+                    </li>
+                ))}
                 <div className="flex flex-col my-4">
                     <button className="bg-transparent text-black mb-4 py-3">Login</button>
                     <button className="px-8 py-3 bg-blue-500 text-white rounded-lg">Registro</button>
