@@ -16,7 +16,6 @@
     "@strapi/plugin-documentation": "^5.5.0",
     "@strapi/plugin-users-permissions": "5.5.0",
     "@strapi/strapi": "5.5.0",
-    "backend": "file:",
     "better-sqlite3": "11.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -34,6 +33,6 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "b01cd69f-bafb-4c4f-81a7-e73d1e394eb7"
+    "uuid": "212af457-48fa-4f5a-9755-fd61628643e2"
   }
 }

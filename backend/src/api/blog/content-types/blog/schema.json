@@ -4,7 +4,7 @@
   "info": {
     "singularName": "blog",
     "pluralName": "blogs",
-    "displayName": "Blog",
+    "displayName": "blogs",
     "description": ""
   },
   "options": {
@@ -15,7 +15,7 @@
     "blogTitle": {
       "type": "string"
     },
-    "blogDescription": {
+    "blogDesc": {
       "type": "string"
     },
     "coverImg": {
@@ -32,6 +32,9 @@
     "blogContentOne": {
       "type": "text"
     },
+    "blogContentTwo": {
+      "type": "text"
+    },
     "manyImg": {
       "type": "media",
       "multiple": true,
@@ -43,18 +46,11 @@
         "audios"
       ]
     },
-    "blogContentTwo": {
-      "type": "text"
-    },
     "authorName": {
       "type": "string"
     },
     "authorDesc": {
       "type": "string"
-    },
-    "coverVideo": {
-      "type": "customField",
-      "customField": "plugin::video-field.video"
     },
     "authorImg": {
       "type": "media",
@@ -67,11 +63,18 @@
         "audios"
       ]
     },
+    "blogDescriptionResume": {
+      "type": "string"
+    },
+    "blogVideo": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
+    },
     "categories": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::category.category",
-      "inversedBy": "blogs"
+      "mappedBy": "blog"
     }
   }
 }

@@ -373,7 +373,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   collectionName: 'blogs';
   info: {
     description: '';
-    displayName: 'Blog';
+    displayName: 'blogs';
     pluralName: 'blogs';
     singularName: 'blog';
   };
@@ -386,18 +386,19 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     authorName: Schema.Attribute.String;
     blogContentOne: Schema.Attribute.Text;
     blogContentTwo: Schema.Attribute.Text;
-    blogDescription: Schema.Attribute.String;
+    blogDesc: Schema.Attribute.String;
+    blogDescriptionResume: Schema.Attribute.String;
     blogTitle: Schema.Attribute.String;
+    blogVideo: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::video-field.video'>;
     categories: Schema.Attribute.Relation<
-      'manyToOne',
+      'oneToMany',
       'api::category.category'
     >;
     coverImg: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    coverVideo: Schema.Attribute.JSON &
-      Schema.Attribute.CustomField<'plugin::video-field.video'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -419,7 +420,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
     description: '';
-    displayName: 'Category';
+    displayName: 'category';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -427,10 +428,11 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
+    blog: Schema.Attribute.Relation<'manyToOne', 'api::blog.blog'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

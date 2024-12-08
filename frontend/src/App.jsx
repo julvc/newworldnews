@@ -1,23 +1,25 @@
-import { Routes, Route } from "react-router-dom";
-import { Homepage, BlogContentpage } from "./pages";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import BlogContent from './pages/BlogContent';
 import useFetch from './hooks/useFetch';
-import React from "react";
+import Layout from './Layout';
 
-export default function App() {
-    let { loading, data, error } = useFetch('http://localhost:1337/api/blogs?populate=*');
-    
+const App = () => {
+    const { loading, data, error } = useFetch('http://localhost:1337/api/blogs');
+
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error!</p>;
+    if (error) return <p>Error loading blogs.</p>;
 
     return (
-        <div>
+        <Layout>
             <Routes>
-                <Route path="/" element={<Homepage blogs={data ? data : ""} />}></Route>
-                {/* <Route path="/blog/:id" element={<BlogContentpage blogs={data ? data : ""} />}></Route> */}
-                {/* <Route path="/category/:category" element={<BlogContentpage blogs={data ? data : ""} />} /> */}
-                <Route path="/blog/:id" element={<BlogContentpage blogs={data ? data : ""} />} />
-                <Route path="/category/:category" element={<BlogContentpage blogs={data ? data : ""} />} />
+                <Route path="/" element={<Homepage blogs={data} />} />
+                <Route path="/category/:category" element={<BlogContent blogs={data} />} />
+                <Route path="/blog/:id" element={<BlogContent blogs={data} />} />
             </Routes>
-        </div>
+        </Layout>
     );
-}
+};
+
+export default App;
