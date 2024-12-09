@@ -6,7 +6,8 @@ import useFetch from './hooks/useFetch';
 import Layout from './Layout';
 
 const App = () => {
-    const { loading, data, error } = useFetch('http://localhost:1337/api/blogs');
+    const { loading, data, error } = useFetch('http://localhost:1337/api/blogs?populate=*');
+    // const { loading, data, error } = useFetch('http://localhost:1337/api/blogs?populate=coverImg,authorImg');
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error loading blogs.</p>;

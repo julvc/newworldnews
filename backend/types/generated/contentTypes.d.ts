@@ -384,10 +384,10 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     authorDesc: Schema.Attribute.String;
     authorImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     authorName: Schema.Attribute.String;
-    blogContentOne: Schema.Attribute.Text;
-    blogContentTwo: Schema.Attribute.Text;
+    blogContentOne: Schema.Attribute.RichText;
+    blogContentThree: Schema.Attribute.RichText;
+    blogContentTwo: Schema.Attribute.RichText;
     blogDesc: Schema.Attribute.String;
-    blogDescriptionResume: Schema.Attribute.String;
     blogTitle: Schema.Attribute.String;
     blogVideo: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<'plugin::video-field.video'>;

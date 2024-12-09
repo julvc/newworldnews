@@ -18,6 +18,31 @@
     "blogDesc": {
       "type": "string"
     },
+    "authorName": {
+      "type": "string"
+    },
+    "authorDesc": {
+      "type": "string"
+    },
+    "blogVideo": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "blog"
+    },
+    "blogContentOne": {
+      "type": "richtext"
+    },
+    "blogContentTwo": {
+      "type": "richtext"
+    },
+    "blogContentThree": {
+      "type": "richtext"
+    },
     "coverImg": {
       "type": "media",
       "multiple": true,
@@ -28,12 +53,6 @@
         "videos",
         "audios"
       ]
-    },
-    "blogContentOne": {
-      "type": "text"
-    },
-    "blogContentTwo": {
-      "type": "text"
     },
     "manyImg": {
       "type": "media",
@@ -46,12 +65,6 @@
         "audios"
       ]
     },
-    "authorName": {
-      "type": "string"
-    },
-    "authorDesc": {
-      "type": "string"
-    },
     "authorImg": {
       "type": "media",
       "multiple": false,
@@ -62,19 +75,6 @@
         "videos",
         "audios"
       ]
-    },
-    "blogDescriptionResume": {
-      "type": "string"
-    },
-    "blogVideo": {
-      "type": "customField",
-      "customField": "plugin::video-field.video"
-    },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "blog"
     }
   }
 }
