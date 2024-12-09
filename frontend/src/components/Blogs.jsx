@@ -24,7 +24,7 @@ const Blogs = ({ blogs }) => {
                     {blogs.data.map(blog => {
                         console.log("Cover Image:", blog.coverImg); // Depuración
                         return (
-                            <div key={blog.documentId} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            <div key={blog.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <img
                                     className="h-56 w-full object-cover rounded-t-xl"
                                     src={getCoverImageUrl(blog.coverImg)}
@@ -39,7 +39,7 @@ const Blogs = ({ blogs }) => {
                                         {blog.blogContentOne?.slice(0, 150) || "Sin descripción"}...
                                     </p>
                                     <Link
-                                        to={`/blog/${blog.id}`}
+                                        to={`/blog/${encodeURIComponent(blog.blogTitle.replace(/\s+/g, '-'))}`}
                                         className="text-blue-500 hover:underline font-medium"
                                     >
                                         Leer más

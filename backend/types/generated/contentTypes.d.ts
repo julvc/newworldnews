@@ -382,8 +382,13 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   attributes: {
     authorDesc: Schema.Attribute.String;
+    authorDiscord: Schema.Attribute.String;
+    authorFacebook: Schema.Attribute.String;
     authorImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    authorInstagram: Schema.Attribute.String;
     authorName: Schema.Attribute.String;
+    authorTwitch: Schema.Attribute.String;
+    authorYoutube: Schema.Attribute.String;
     blogContentOne: Schema.Attribute.RichText;
     blogContentThree: Schema.Attribute.RichText;
     blogContentTwo: Schema.Attribute.RichText;

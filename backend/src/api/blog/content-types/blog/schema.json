@@ -75,6 +75,21 @@
         "videos",
         "audios"
       ]
+    },
+    "authorFacebook": {
+      "type": "string"
+    },
+    "authorInstagram": {
+      "type": "string"
+    },
+    "authorTwitch": {
+      "type": "string"
+    },
+    "authorDiscord": {
+      "type": "string"
+    },
+    "authorYoutube": {
+      "type": "string"
     }
   }
 }

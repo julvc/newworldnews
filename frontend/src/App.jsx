@@ -17,7 +17,8 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Homepage blogs={data} />} />
                 <Route path="/category/:category" element={<BlogContent blogs={data} />} />
-                <Route path="/blog/:id" element={<BlogContent blogs={data} />} />
+                <Route path="/blog/:title" element={<BlogContent blogs={data} />} />
+                {/* <Route path="/blog/:id" element={<BlogContent blogs={data} />} /> */}
             </Routes>
         </Layout>
     );
